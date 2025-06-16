@@ -1,10 +1,9 @@
 #include <iostream>
-
 //This Program is used to review C++ consisting of multiple functions
 
 
 int basic(){
-
+    //Testing different variable types.
     int wholenumber = 10; //declaration
     double decnumber = 5.5;
     char dolchar = '$';
@@ -23,6 +22,7 @@ int basic(){
 }
 
 int calculator(){
+    //Basic sum function
     int total = 0;
     int x,y;
 
@@ -42,6 +42,7 @@ int calculator(){
 }
 
 int compare(){
+    //Higher or Lower than 7 if statement
     int x,y;
 
     std::cout << "Higher or lower than 7. \n";
@@ -61,7 +62,7 @@ int compare(){
 }
 
 int agecheck() {
-    //your code goes here
+    //Agechecker with user input - ticket system
     int age;
     std::cout << "Please Enter your Age to see the cost of tickets: \n";
     std::cin >> age;
@@ -84,6 +85,7 @@ int agecheck() {
 }
 
 int countdown(){
+    //While loop for a countdown.
     int number;
     std::cout << "Enter a number to begin Countdown... \n";
     std::cin >> number;
@@ -96,6 +98,7 @@ int countdown(){
 }
 
 int sumall() {
+    //For loop to sum all #s
     int n;
     int result=0;
 
@@ -112,6 +115,7 @@ int sumall() {
 }
 
 int minimap() {
+    //Multidimensional Array sandbox
     int map[7][7] = {
         {0, 0, 1, 1, 0, 1, 0},
         {1, 0, 0, 1, 1, 0, 1},
@@ -132,9 +136,23 @@ int minimap() {
     return 0;
 }
 
+std::string concatenate(std::string x){
+    //Testing concatenate and passing through functions.
+    std::string intro1 = "This is a Test: ";
+    std::string intro2 = "Program is now Running... \n";
+    std::string word;
+    word = x + intro1 + intro2;
+    return word;
+}
+
 int main(){
-    std::cout << "This is a Test: Program is now Running... \n";
+    //Intro to send "Hello to concatenate function, function returns a whole intro."
+    std::string intro;
+    std::string Hello = "Hello \n";
+    intro = concatenate(Hello);
+    std::cout << intro;
     
+    //Menu
     int choice = 0;
 
     std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n";
