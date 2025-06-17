@@ -193,13 +193,33 @@ int dynamicmem(){
     return 0;
 }
 
+void welcomebot(int mode, std::string name){
+    if (mode == 1){
+        std::cout << "Welcome, " << name << "!\n";
+    }
+    else if (mode == 2){
+        std::cout << "Goodbye, " << name << "!\n";
+    }
+    else
+        std::cout << "Wrong mode entered!\n";
+}
 int main(){
     //Intro to send "Hello to concatenate function, function returns a whole intro."
     std::string intro;
     std::string Hello = "Hello \n";
     intro = concatenate(Hello);
     std::cout << intro;
-    
+
+    //Call Welcome Bot Function
+    int mode;
+    std::cout << "\nEnter 1 - Hello Mode. \nEnter 2 - Goodbye Mode\n";
+    std::cin >> mode;
+    std::cout << "Enter your Name: \n";
+    std::string name;
+    std::cin >> name;
+
+    welcomebot(mode, name);
+
     //Menu
     int choice = 0;
 
