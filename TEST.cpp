@@ -193,6 +193,7 @@ int dynamicmem(){
     return 0;
 }
 
+// Welcome robot that takes an int mode and string name
 void welcomebot(int mode, std::string name){
     if (mode == 1){
         std::cout << "Welcome, " << name << "!\n";
@@ -203,6 +204,17 @@ void welcomebot(int mode, std::string name){
     else
         std::cout << "Wrong mode entered!\n";
 }
+
+//Function that converts Days -> Seconds
+int toSeconds(int days){
+    int sec;
+    //days * 24 hours * 60 mins * 60 to get the seconds
+    sec=days*24*60*60;
+
+    return sec;
+}
+
+
 int main(){
     //Intro to send "Hello to concatenate function, function returns a whole intro."
     std::string intro;
@@ -222,8 +234,8 @@ int main(){
 
     //Menu
     int choice = 0;
-
-    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n";
+    int seconds;
+    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n";
     std::cin >> choice;
 
     switch (choice){
@@ -253,6 +265,13 @@ int main(){
             break;
         case 9:
             dynamicmem();
+            break;
+        case 10:
+            int days;
+            std::cout << "Enter the amount of days to be calculated to seconds: \n";
+            std::cin >> days;
+            seconds = toSeconds(days);
+            std::cout << "Seconds: " << seconds;
             break;
         default:
             std::cout << "Invalid Choice";
