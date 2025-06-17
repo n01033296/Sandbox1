@@ -210,10 +210,13 @@ int toSeconds(int days){
     int sec;
     //days * 24 hours * 60 mins * 60 to get the seconds
     sec=days*24*60*60;
-
     return sec;
 }
 
+//Overload Function that allows double and returns a double for the toSeconds Function
+double toSeconds (double days){
+    return days*24*60*60;
+}
 
 int main(){
     //Intro to send "Hello to concatenate function, function returns a whole intro."
