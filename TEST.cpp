@@ -145,6 +145,54 @@ std::string concatenate(std::string x){
     return word;
 }
 
+void arraypointer() {
+    //This is a sandbox for pointers and array - does not take any user input
+    int ages[] = {19, 24, 36, 45, 56, 52, 21, 27, 24, 34, 29, 60, 40, 42, 45, 47, 22, 30, 34, 20, 18, 26, 51, 43, 47, 39, 22, 34, 56, 52, 21, 27, 24, 37, 19, 24, 36, 45, 44, 49, 23, 25, 19, 40, 29, 60, 40, 42, 45, 47, 61, 30, 19, 43, 47, 39, 41, 46, 29, 24, 21, 25, 28};
+    
+    int size = 63;
+    int total = 0;
+    int avg = 0;
+
+    int *p = ages;
+    
+    for(int i=0;i<size;i++) {
+        total = total + *p;
+        p++;
+        
+    }
+    //To get the average = sum of array / size of array
+        avg = total / size;
+        std::cout << avg << std::endl;
+
+}
+
+int dynamicmem(){
+    int n;
+    std::cout << "Enter an array size: \n";
+    std::cin >> n; //size of the array
+
+    int inputs;
+    int *nums = new int[n];
+    //Accept inputs into the array
+    for(int i=0; i<n; i++){
+        std::cout << "Enter Value: \n";
+        std::cin >> inputs;
+        nums[i]=inputs;
+    }
+
+    //Compare for max number(highest)
+    int max = nums[0];
+    for(int i=0; i<n; i++) {
+        if(nums[i]>max)
+            max = nums[i];
+
+    }
+    std::cout << "Highest Value: " << max;
+    //Deallocate memory
+    delete[] nums;
+    return 0;
+}
+
 int main(){
     //Intro to send "Hello to concatenate function, function returns a whole intro."
     std::string intro;
@@ -155,7 +203,7 @@ int main(){
     //Menu
     int choice = 0;
 
-    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n";
+    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n";
     std::cin >> choice;
 
     switch (choice){
@@ -179,6 +227,12 @@ int main(){
             break;
         case 7:
             minimap();
+            break;
+        case 8:
+            arraypointer();
+            break;
+        case 9:
+            dynamicmem();
             break;
         default:
             std::cout << "Invalid Choice";
