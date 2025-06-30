@@ -1,6 +1,40 @@
 #include <iostream>
 //This Program is used to review C++ consisting of multiple functions
 
+//Class for Chirp-chirp
+class Bird {
+    public:
+    void makeSound(){
+        std::cout << "chirp-chirp \n";
+    }
+};
+
+//Class for Car
+class Car{
+    //private area
+    private:
+        int horsepowers;
+
+    //public area
+    public:
+        //setter function
+        void setHorsepowers(int input) {
+            if(input>800){
+                std::cout << "Too much. \n";
+                horsepowers = input;
+        }
+            else{
+                horsepowers = input;
+            }
+        }
+        //getter function
+        int getHorsepowers() {
+            return horsepowers;
+        }
+        
+
+};
+
 
 int basic(){
     //Testing different variable types.
@@ -218,6 +252,7 @@ double toSeconds (double days){
     return days*24*60*60;
 }
 
+
 int main(){
     //Intro to send "Hello to concatenate function, function returns a whole intro."
     std::string intro;
@@ -238,7 +273,7 @@ int main(){
     //Menu
     int choice = 0;
     int seconds;
-    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n";
+    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n";
     std::cin >> choice;
 
     switch (choice){
@@ -276,8 +311,29 @@ int main(){
             seconds = toSeconds(days);
             std::cout << "Seconds: " << seconds;
             break;
+        case 11:
+            //instantiation
+            Bird bird;
+    
+            //class call
+            bird.makeSound();
+            break;
+
+        case 12:
+            int horsepowers;
+            std::cout << "Enter the amount of Horsepower for the car: \n";
+            std::cin >> horsepowers;
+            //instantiation
+            Car car;
+            //setting the value for private member
+            std::cout << "Horsepower Set privately. \n";
+            car.setHorsepowers(horsepowers);
+            //printing the value of private member
+            std::cout << "Getting Horsepower privately: "<< car.getHorsepowers();
+            break;
+
         default:
-            std::cout << "Invalid Choice";
+            std::cout << "Invalid Choice\n";
             return 0;
     }
     return 0;
