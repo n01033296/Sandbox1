@@ -31,10 +31,27 @@ class Car{
         int getHorsepowers() {
             return horsepowers;
         }
-        
-
 };
 
+//Class for Painting
+class Painting {
+    private:
+        std::string paint;
+    public:
+    Painting(std::string nm){
+        setpaint(nm);
+        getpaint();
+    }
+    //Set Name
+    void setpaint(std::string x){
+        paint = x;
+    }
+    //Get Name
+    std::string getpaint(){
+        return paint;
+    }
+
+};
 
 int basic(){
     //Testing different variable types.
@@ -267,15 +284,16 @@ int main(){
     std::cout << "Enter your Name: \n";
     std::string name;
     std::cin >> name;
+    std::string paint;
 
-    welcomebot(mode, name);
+ welcomebot(mode, name);
 
     //Menu
     int choice = 0;
     int seconds;
-    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n";
+    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n";
     std::cin >> choice;
-
+    
     switch (choice){
         case 1:
             basic();
@@ -305,21 +323,25 @@ int main(){
             dynamicmem();
             break;
         case 10:
+        {
             int days;
             std::cout << "Enter the amount of days to be calculated to seconds: \n";
             std::cin >> days;
             seconds = toSeconds(days);
             std::cout << "Seconds: " << seconds;
             break;
+        }
         case 11:
+        {
             //instantiation
             Bird bird;
     
             //class call
             bird.makeSound();
             break;
-
+        }
         case 12:
+        {
             int horsepowers;
             std::cout << "Enter the amount of Horsepower for the car: \n";
             std::cin >> horsepowers;
@@ -331,10 +353,22 @@ int main(){
             //printing the value of private member
             std::cout << "Getting Horsepower privately: "<< car.getHorsepowers();
             break;
-
+        }
+        case 13:
+        {
+            std::cout << "Enter a name: \n";
+            std::cin >> paint;
+            //const and sending argument to class
+            Painting painting(paint);
+            //printing the entered names with painting
+            std::cout << "Names: " << painting.getpaint();
+            break;
+        }
         default:
+        {
             std::cout << "Invalid Choice\n";
             return 0;
+        }
     }
     return 0;
 }
