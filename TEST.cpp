@@ -9,7 +9,7 @@ class Bird {
     }
 };
 
-//Class for Car
+//Class for Car case 12
 class Car{
     //private area
     private:
@@ -33,7 +33,7 @@ class Car{
         }
 };
 
-//Class for Painting
+//Class for Painting for case13
 class Painting {
     private:
         std::string paint;
@@ -52,6 +52,24 @@ class Painting {
     }
 
 };
+
+//Player Class for Case14
+class Player
+{
+  public:
+    int points;
+    Player(int x)
+    {
+        points = x;
+        points %= 5;
+    }
+//constructor
+    ~Player(){
+        std::cout << points;
+    }
+};
+
+
 
 int basic(){
     //Testing different variable types.
@@ -291,7 +309,7 @@ int main(){
     //Menu
     int choice = 0;
     int seconds;
-    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n";
+    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDeconstructor \n";
     std::cin >> choice;
     
     switch (choice){
@@ -362,6 +380,14 @@ int main(){
             Painting painting(paint);
             //printing the entered names with painting
             std::cout << "Names: " << painting.getpaint();
+            break;
+        }
+        case 14:
+        {
+            int points;
+            std::cout << "Enter the amount of points for the player. \n";
+            std::cin >> points;
+            Player obj(points);
             break;
         }
         default:
