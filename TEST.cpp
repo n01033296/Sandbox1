@@ -85,6 +85,21 @@ class Phone
         }
 };
 
+//Number Class for Case16
+class Number{
+    private:
+        int num;
+    public:
+        Number(int n) {
+            num = n;
+        }
+        //complete the method
+        int square() const {
+            int val = num*num;
+            return val;
+        };
+};
+
 
 int basic(){
     //Testing different variable types.
@@ -324,7 +339,7 @@ int main(){
     //Menu
     int choice = 0;
     int seconds;
-    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n";
+    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n";
     std::cin >> choice;
     
     switch (choice){
@@ -415,6 +430,16 @@ int main(){
             ptr->getCharge();
             break;
         }
+        case 16:
+        {
+            int x;
+            std::cout << "Enter a number to Square: ";
+            std::cin >> x;
+            const Number myNum(x);
+            std::cout << myNum.square();
+            break;
+        }
+
         default:
         {
             std::cout << "Invalid Choice\n";
