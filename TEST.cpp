@@ -56,19 +56,34 @@ class Painting {
 //Player Class for Case14
 class Player
 {
-  public:
+public:
     int points;
     Player(int x)
     {
         points = x;
         points %= 5;
     }
-//constructor
+//destructor
     ~Player(){
         std::cout << points;
     }
 };
 
+//Phone Class for Case15
+class Phone
+{
+    public:
+        int charge;
+        Phone() {
+            charge = 100;
+        }
+        void use() {
+            charge -=10;
+        }
+        void getCharge() {
+            std::cout << charge;
+        }
+};
 
 
 int basic(){
@@ -309,7 +324,7 @@ int main(){
     //Menu
     int choice = 0;
     int seconds;
-    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDeconstructor \n";
+    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n";
     std::cin >> choice;
     
     switch (choice){
@@ -388,6 +403,16 @@ int main(){
             std::cout << "Enter the amount of points for the player. \n";
             std::cin >> points;
             Player obj(points);
+            break;
+        }
+        case 15:
+        {
+            Phone p;
+            p.use();
+            Phone *ptr = &p;
+    
+            //call the getCharge() method on ptr
+            ptr->getCharge();
             break;
         }
         default:
