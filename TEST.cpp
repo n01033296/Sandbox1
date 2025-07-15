@@ -100,6 +100,40 @@ class Number{
         };
 };
 
+//TV Class for Case17
+class TV {
+    public:
+        TV(int h, int w): height(h), width(w) {};
+        void area() {
+            std::cout <<height*width;
+        }
+    private:
+        int height;
+        int width;
+};
+//Engine and Vehicle Class for Case18
+class Engine {
+    public:
+        Engine(int p): power(p) {};
+        void start() {
+            std::cout <<"Engine ON ("<<power<<" horsepower)";
+        }
+    private:
+        int power;
+};
+class Vehicle {
+    public:
+        Vehicle(Engine x, std::string c, int y): e(x), color(c), year(y) {};
+        void start() {
+            std::cout <<"Starting"<<std::endl;
+            //Call start() of Engine
+            e.start();
+        }
+    private:
+        Engine e;
+        std::string color;
+        int year;
+};
 
 int basic(){
     //Testing different variable types.
@@ -339,7 +373,7 @@ int main(){
     //Menu
     int choice = 0;
     int seconds;
-    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n";
+    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n";
     std::cin >> choice;
     
     switch (choice){
@@ -440,6 +474,30 @@ int main(){
             break;
         }
 
+        case 17:
+        {
+            int x1,x2;
+            std::cout << "Enter Two integers for the television size: ";
+            std::cin >> x1 >> x2;
+            TV tele(x1,x2);
+            tele.area();
+            break;
+
+        }
+        case 18:
+        {
+            int power;
+            std::string color;
+            int year;
+            std::cout << "Enter Power, Color, and Year of the vehicle: \n";
+            std::cin >> power >> color >> year;
+    
+            Engine e(power);
+            //Create vehicle object with the given Engine and inputs in main and call Start()
+            Vehicle vehicle(power, color, year);
+            vehicle.start();
+            break;
+        }
         default:
         {
             std::cout << "Invalid Choice\n";
