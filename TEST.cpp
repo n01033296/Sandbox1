@@ -134,6 +134,42 @@ class Vehicle {
         std::string color;
         int year;
 };
+//Point Class for Case19 and using friend 
+class Point {
+    public:
+        Point(int a, int b): x(a), y(b) {};
+        void print() {
+            std::cout << x << ", " << y;
+        }
+    private:
+        int x;
+        int y;
+    
+    friend void shift(Point &p, int step) {
+    p.x += step;
+    p.y += step;
+}
+};
+
+//Account Class for Case20 for Overloaded Operators
+class Account {
+    private:
+        int balance=0;
+        int interest=0;
+    public:
+        Account() {}
+        Account(int a): balance(a) 
+        {
+            interest += balance/10;
+        }
+        int getTotal() {
+            return balance+interest;
+        }
+        //Merge two accounts together, overloaded operator to return new Account object
+        friend Account operator+ (Account const&n1, Account const&n2){
+            return Account(n1.balance + n2.balance);
+        }
+};
 
 int basic(){
     //Testing different variable types.
@@ -373,7 +409,7 @@ int main(){
     //Menu
     int choice = 0;
     int seconds;
-    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n";
+    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account";
     std::cin >> choice;
     
     switch (choice){
@@ -496,6 +532,33 @@ int main(){
             //Create vehicle object with the given Engine and inputs in main and call Start()
             Vehicle vehicle(power, color, year);
             vehicle.start();
+            break;
+        }
+        case 19:
+        {
+            int x, y;
+            std::cout<<"Enter two integer points: \n";
+            std::cin>>x>>y;
+            Point p(x, y);
+
+            int step;
+            std::cout<<"Enter integer to shift amount: \n";
+            std::cin>>step;
+            shift(p, step);
+    
+            p.print();
+            break;
+        }
+        case 20:
+        {
+            int n1, n2;
+            std::cout << "Please Enter Two Integer Account balances to Test Overloaded Operators:\n";
+            std::cin >> n1 >> n2;
+            Account a(n1);
+            Account b(n2);
+            Account res = a+b;
+
+            std::cout << res.getTotal();
             break;
         }
         default:
