@@ -171,6 +171,56 @@ class Account {
         }
 };
 
+//Queue Class for Case21 Merging two objects
+class Queue { 
+	int size; 
+	int* queue; 
+	
+	public:
+	Queue() { 
+		size = 0;
+		queue = new int[100];
+	}
+	void add(int data) { 
+		queue[size] = data; 
+		size++;
+	}
+	void remove() { 
+		if (size == 0) { 
+			std::cout << "Queue is empty"<<std::endl; 
+			return; 
+		} 
+		else { 
+			for (int i = 0; i < size - 1; i++) { 
+				queue[i] = queue[i + 1]; 
+			} 
+			size--; 
+		} 
+	} 
+	void print() { 
+		if (size == 0) { 
+			std::cout << "Queue is empty"<<std::endl; 
+			return; 
+		} 
+		for (int i = 0; i < size; i++) { 
+			std::cout<<queue[i]<<" <- ";
+		} 
+		std::cout << std::endl;
+	}
+	//For loop with overload operator to merge two objects and return
+	friend Queue operator+(Queue& q1, Queue& q2){
+		Queue obj;
+		for(int i=0; i<q1.size; i++)
+			obj.add(q1.queue[i]);
+
+		for(int i=0; i<q2.size; i++)
+			obj.add(q2.queue[i]);
+
+		return obj;
+	}
+}; 
+
+
 int basic(){
     //Testing different variable types.
     int wholenumber = 10; //declaration
@@ -409,7 +459,7 @@ int main(){
     //Menu
     int choice = 0;
     int seconds;
-    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account";
+    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account \n 21.Queue \n";
     std::cin >> choice;
     
     switch (choice){
@@ -559,6 +609,17 @@ int main(){
             Account res = a+b;
 
             std::cout << res.getTotal();
+            break;
+        }
+
+        case 21:
+        {
+	        Queue q1; 
+	        q1.add(42); q1.add(2); q1.add(8);  q1.add(1);
+	        Queue q2;
+        	q2.add(3); q2.add(66); q2.add(128);  q2.add(5);
+	        Queue q3 = q1+q2;
+	        q3.print();
             break;
         }
         default:
