@@ -220,6 +220,26 @@ class Queue {
 	}
 }; 
 
+//Shape Class for Case22
+class Shape
+{
+    public:
+        void draw() {
+            std::cout << "Drawing...";
+        }
+};
+//Case22 Rectangle Child - inherit from Shape
+class Rectangle : public Shape
+{
+    private:
+        int width;
+        int height;
+    public:
+        Rectangle(int w, int h): width(w), height(h) {
+            std::cout <<w<<"x"<<h<<std::endl;
+        };
+};
+
 
 int basic(){
     //Testing different variable types.
@@ -459,7 +479,7 @@ int main(){
     //Menu
     int choice = 0;
     int seconds;
-    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account \n 21.Queue \n";
+    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account \n 21.Queue \n 22.InheritanceShapes \n";
     std::cin >> choice;
     
     switch (choice){
@@ -620,6 +640,17 @@ int main(){
         	q2.add(3); q2.add(66); q2.add(128);  q2.add(5);
 	        Queue q3 = q1+q2;
 	        q3.print();
+            break;
+        }
+
+        case 22:
+        {
+            int x, y;
+            std::cout<<"Enter Two integers to create a rectangle: \n";
+            std::cin>>x>>y;
+            Rectangle d(x, y);
+            //call the draw() method with object d
+            d.draw();
             break;
         }
         default:
