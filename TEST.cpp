@@ -240,6 +240,29 @@ class Rectangle : public Shape
         };
 };
 
+//Case23 class Drink, Coffee, Tea: with Inheritance and Polymorphism
+class Drink {
+    protected: 
+        int price;
+    public:
+        void setPrice(int a){
+            price = a;
+        }
+};
+
+class Coffee : public Drink {
+    public:
+        void make() {
+            std::cout << "Coffee: "<<price<<std::endl;
+        }
+};
+
+class Tea : public Drink {
+    public:
+        void make() {
+            std::cout << "Tea: "<<price<<std::endl;
+        }
+};
 
 int basic(){
     //Testing different variable types.
@@ -479,7 +502,7 @@ int main(){
     //Menu
     int choice = 0;
     int seconds;
-    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account \n 21.Queue \n 22.InheritanceShapes \n";
+    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account \n 21.Queue \n 22.InheritanceShapes \n 23.Drinks \n";
     std::cin >> choice;
     
     switch (choice){
@@ -651,6 +674,19 @@ int main(){
             Rectangle d(x, y);
             //call the draw() method with object d
             d.draw();
+            break;
+        }
+        
+        case 23:
+        {
+            Coffee c;
+            Tea t;
+
+            c.setPrice(5);
+            t.setPrice(6);
+
+            c.make();
+            t.make();
             break;
         }
         default:
