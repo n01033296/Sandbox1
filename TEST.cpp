@@ -264,6 +264,31 @@ class Tea : public Drink {
         }
 };
 
+//Case24 - class Animal,dog,cat for Polymorphism and Virtual function testing
+class Animal
+{
+    public:
+        std::string name;
+        //Virtual function speak()
+        virtual void speak(){
+
+        }
+};
+class Dog: public Animal
+{
+    public:
+        void speak() {
+            std::cout <<"Woof!"<<std::endl;
+        }
+};
+class Cat: public Animal
+{
+    public:
+        void speak() {
+            std::cout <<"Meaw!"<<std::endl;
+        }
+};
+
 int basic(){
     //Testing different variable types.
     int wholenumber = 10; //declaration
@@ -502,7 +527,7 @@ int main(){
     //Menu
     int choice = 0;
     int seconds;
-    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account \n 21.Queue \n 22.InheritanceShapes \n 23.Drinks \n";
+    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account \n 21.Queue \n 22.InheritanceShapes \n 23.Drinks \n 24.Animals \n";
     std::cin >> choice;
     
     switch (choice){
@@ -687,6 +712,23 @@ int main(){
 
             c.make();
             t.make();
+            break;
+        }
+
+        case 24:
+        {
+            Cat c1;
+            c1.name = "Fluffy";
+            Dog d1;
+            d1.name = "Bingo";
+            
+            Animal *a1 = &c1;
+            Animal *a2 = &d1;
+            
+            Animal* arr[] = {a1, a2}; 
+            for(int i=0;i<2;i++){
+                arr[i]->speak();
+            }
             break;
         }
         default:
