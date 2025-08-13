@@ -289,6 +289,89 @@ class Cat: public Animal
         }
 };
 
+//Case25 - Vehicle classes with virtual function
+class Vehicle25 {
+    public:
+        virtual void drive() = 0;
+};
+
+class Car25: public Vehicle25 {
+    public:
+        void drive() {
+            std::cout << "Driving a car!"<<std::endl;
+        }
+};
+
+class Bicycle25: public Vehicle25 {
+    public:
+        void drive() {
+            std::cout << "Driving a bicycle!"<<std::endl;
+        }
+};
+
+//Case26 Queue classes with virtual functions and a derived class
+class Queue26 { 
+	protected:
+	int size; 
+	int* queue; 
+	
+	public:
+	Queue26() { 
+		size = 0;
+		queue = new int[100];
+	}
+	void add(int data) { 
+		queue[size] = data; 
+		size++;
+	}
+	void remove() { 
+		if (size == 0) { 
+			std::cout << "Queue is empty"<<std::endl; 
+			return; 
+		} 
+		else { 
+			for (int i = 0; i < size - 1; i++) { 
+				queue[i] = queue[i + 1]; 
+			} 
+			size--; 
+		} 
+	} 
+    //virtual print
+	virtual void print() { 
+		if (size == 0) { 
+			std::cout << "Queue is empty"<<std::endl; 
+			return; 
+		} 
+		for (int i = 0; i < size; i++) { 
+			std::cout<<queue[i]<<" <- ";
+		} 
+		std::cout << std::endl;
+	}
+	Queue26 operator+(Queue26 &obj) {
+        Queue26 res;
+        for(int i=0;i<this->size;i++) {
+            res.add(this->queue[i]);
+        }
+        for(int i=0;i<obj.size;i++) {
+            res.add(obj.queue[i]);
+        }
+        return res; 
+    }
+}; 
+
+class Queue26b: public Queue26{
+public:
+	void print() override{
+		if (size == 0) { 
+			std::cout << "Queue is empty"<<std::endl; 
+			return; 
+		} 
+		for (int i = 0; i < size; i++) { 
+			std::cout<<queue[i]<<"\n";
+		} 
+	}
+};
+
 int basic(){
     //Testing different variable types.
     int wholenumber = 10; //declaration
@@ -527,7 +610,7 @@ int main(){
     //Menu
     int choice = 0;
     int seconds;
-    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account \n 21.Queue \n 22.InheritanceShapes \n 23.Drinks \n 24.Animals \n";
+    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account \n 21.Queue \n 22.InheritanceShapes \n 23.Drinks \n 24.Animals \n 25.Virtual Vehicles \n 26.Queue Management \n";
     std::cin >> choice;
     
     switch (choice){
@@ -729,6 +812,30 @@ int main(){
             for(int i=0;i<2;i++){
                 arr[i]->speak();
             }
+            break;
+        }
+
+        case 25:
+        {
+            Car25 c;
+            Bicycle25 b;
+            Vehicle25 *v1 = &c;
+            Vehicle25 *v2 = &b;
+
+            v1->drive();
+            v2->drive();
+
+            break; 
+        }
+        case 26:
+        {
+            Queue26 q1; 
+            q1.add(42); q1.add(2); q1.add(8);  q1.add(1);
+            q1.print();
+        
+            Queue26b q2;
+            q2.add(3); q2.add(66); q2.add(128);  q2.add(5);q2.add(111);q2.add(77890);
+            q2.print();
             break;
         }
         default:
