@@ -381,6 +381,27 @@ T myMax(T a, T b){
         return b;
 }
 
+//Template Function class for case 28
+template <class T>
+class Queue28
+{
+	private:
+	T *arr;
+        int count;
+    public:
+    	Queue28(int size) {
+    	    arr = new T[size];
+    	    count = 0;
+    	}
+    	void add(T elem) {
+    	    arr[count] = elem;
+    	    count++;
+    	}
+    	void get(size_t index) {
+    	    std::cout << arr[index]<<std::endl;
+    	}
+};
+
 int basic(){
     //Testing different variable types.
     int wholenumber = 10; //declaration
@@ -619,7 +640,7 @@ int main(){
     //Menu
     int choice = 0;
     int seconds;
-    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account \n 21.Queue \n 22.InheritanceShapes \n 23.Drinks \n 24.Animals \n 25.Virtual Vehicles \n 26.Queue Management \n 27.Template Function \n";
+    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account \n 21.Queue \n 22.InheritanceShapes \n 23.Drinks \n 24.Animals \n 25.Virtual Vehicles \n 26.Queue Management \n 27.Template Function \n 28.Class Templates";
     std::cin >> choice;
     
     switch (choice){
@@ -859,6 +880,21 @@ int main(){
             std::cout << myMax(x, y) << std::endl;
             std::cout << myMax(a, b) << std::endl;
             break;
+        }
+
+        case 28:
+        {
+            Queue28<std::string> q(4);
+            q.add("James");
+            q.add("Andy");
+            q.add("Amy");
+            q.get(2);
+            
+            Queue28 <int> n(2);
+            n.add(42);
+            n.add(33);
+            n.get(1);
+            break;            
         }
         default:
         {
