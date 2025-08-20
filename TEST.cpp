@@ -660,7 +660,7 @@ int main(){
     //Menu
     int choice = 0;
     int seconds;
-    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account \n 21.Queue \n 22.InheritanceShapes \n 23.Drinks \n 24.Animals \n 25.Virtual Vehicles \n 26.Queue Management \n 27.Template Function \n 28.Class Templates \n 29.Template Specialization \n";
+    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account \n 21.Queue \n 22.InheritanceShapes \n 23.Drinks \n 24.Animals \n 25.Virtual Vehicles \n 26.Queue Management \n 27.Template Function \n 28.Class Templates \n 29.Template Specialization \n 30.Try,Throw,Catch \n";
     std::cin >> choice;
     
     switch (choice){
@@ -929,6 +929,25 @@ int main(){
             Div <std::string> d2(a, b);
             Div <int> d1(x, y);
             break;
+        }
+
+        case 30:
+        {
+            std::string name;
+            std::cout << "Enter a name to have validated, Character length requirement 4-20: \n";
+            std::cin >> name;
+            try {
+                if(name.length()>=4 && name.length()<=20){
+                    std::cout << "Valid";
+                }
+                if(name.length()<4 || name.length()>20){
+                    throw 9;
+                }
+            }
+            catch(int x) {
+                std::cout << "Invalid";
+            }
+        break;
         }
         default:
         {
