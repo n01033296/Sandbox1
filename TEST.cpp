@@ -402,6 +402,26 @@ class Queue28
     	}
 };
 
+//Template Specialization class for case 29
+template <class T>
+class Div {
+    public:
+        Div (T x, T y) {
+            std::cout << x / y << std::endl;
+        }
+};
+
+//Template Specialization for string
+template <>
+class Div <std::string>{
+    public:
+        Div (std::string x, std::string y){
+            std::cout << size(x) / size(y) << std::endl;
+        }
+        
+};
+
+
 int basic(){
     //Testing different variable types.
     int wholenumber = 10; //declaration
@@ -640,7 +660,7 @@ int main(){
     //Menu
     int choice = 0;
     int seconds;
-    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account \n 21.Queue \n 22.InheritanceShapes \n 23.Drinks \n 24.Animals \n 25.Virtual Vehicles \n 26.Queue Management \n 27.Template Function \n 28.Class Templates";
+    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account \n 21.Queue \n 22.InheritanceShapes \n 23.Drinks \n 24.Animals \n 25.Virtual Vehicles \n 26.Queue Management \n 27.Template Function \n 28.Class Templates \n 29.Template Specialization \n";
     std::cin >> choice;
     
     switch (choice){
@@ -895,6 +915,20 @@ int main(){
             n.add(33);
             n.get(1);
             break;            
+        }
+
+        case 29:
+        {
+            std::string a, b;
+            std::cout << "Enter two strings to have their lengths divided: \n";
+            std::cin >> a >> b;
+            int x, y;
+            std::cout << "Enter two integers to be divided\n";
+            std::cin >> x >> y;
+            
+            Div <std::string> d2(a, b);
+            Div <int> d1(x, y);
+            break;
         }
         default:
         {
