@@ -660,7 +660,7 @@ int main(){
     //Menu
     int choice = 0;
     int seconds;
-    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account \n 21.Queue \n 22.InheritanceShapes \n 23.Drinks \n 24.Animals \n 25.Virtual Vehicles \n 26.Queue Management \n 27.Template Function \n 28.Class Templates \n 29.Template Specialization \n 30.Try,Throw,Catch \n";
+    std::cout << "MENU - Please enter a number: \n 1. basic \n 2.Calculator \n 3.Compare \n 4.Agecheck \n 5.Countdown \n 6.Sumall \n 7.minimap \n 8.arraypointer \n 9.dynamicmem \n 10.toSeconds \n 11.chirp-chirp \n 12.Car \n 13.Paintings \n 14.PlayerDestructor \n 15.GetCharge \n 16.NumberSquared \n 17.TV \n 18.Vehicle \n 19.Point \n 20.Account \n 21.Queue \n 22.InheritanceShapes \n 23.Drinks \n 24.Animals \n 25.Virtual Vehicles \n 26.Queue Management \n 27.Template Function \n 28.Class Templates \n 29.Template Specialization \n 30.Try,Throw,Catch \n 31.Exceptions";
     std::cin >> choice;
     
     switch (choice){
@@ -948,6 +948,26 @@ int main(){
                 std::cout << "Invalid";
             }
         break;
+        }
+        
+        case 31:
+        {
+            std::string menu[] = {"fruits", "chicken", "fish", "cake"};
+            try {
+                int x;
+                std::cout<<"\n 1.fruits \n 2.chicken \n 3.fish \n 4.cake \n Please select a number: \n";
+                std::cin >> x;
+                if(x>=1 && x<=4){
+                    std::cout<<menu[x-1];
+                }
+                else{
+                    throw std::out_of_range("Invalid Entry");
+                }
+            }
+            catch(const std::exception& e) {
+                std::cout<<"404 - not found";
+            }
+            break;
         }
         default:
         {
